@@ -32,11 +32,11 @@ function ClotheApi(app){
       });
       
       
-      router.get("/:clotheId",async function(req,res){
+      router.get("/:clotheId",async function(req,res, next){
         //cacheResponse(res.FIVE_MINUTES_IN_SECONDS);
         console.log(req.params)
         const {clotheId}=req.params;
-        
+        try {
          
           const Clothe=await clothesServices.getClothe(clotheId)
 
@@ -44,7 +44,9 @@ function ClotheApi(app){
             data:Clothe,
             message:'Clothe encontrado'
           });
-        
+        } catch (error) {
+          next(error);
+        }
       });
 
 
