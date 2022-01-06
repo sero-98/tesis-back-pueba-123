@@ -33,7 +33,7 @@ function ClotheApi(app){
       
       
       router.get("/:clotheId",async function(req,res){
-        cacheResponse(res.FIVE_MINUTES_IN_SECONDS);
+        //cacheResponse(res.FIVE_MINUTES_IN_SECONDS);
         console.log(req.params)
         const {clotheId}=req.params;
         
